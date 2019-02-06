@@ -5,6 +5,7 @@ class Player {
     this.losses = 0;
     this.ties = 0;
     this.winPercentage = 0;
+    this.winStreak = 0;
   }
 
   getStats() {
@@ -20,12 +21,15 @@ class Player {
   updateStats(winStatus) {
     if (winStatus === 1) {
       this.wins += 1;
+      this.winStreak += 1;
     }
     if (winStatus === 0) {
       this.ties += 1;
+      this.winStreak = 0;
     }
     if (winStatus === -1) {
       this.losses += 1;
+      this.winStreak = 0;
     }
     this.winPercentage = this.calculateWinPercentage();
   }
