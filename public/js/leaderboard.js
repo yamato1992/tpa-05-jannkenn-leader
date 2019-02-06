@@ -17,10 +17,11 @@ const renderPlayerRow = function(player) {
     wins,
     losses,
     ties,
+    winStreak,
   } = player;
   const winPercentage = formatPercentage(player.winPercentage);
   const rowEl = createTableRow();
-  [name, wins, losses, ties, winPercentage].forEach((cellValue) => {
+  [name, wins, losses, ties, winPercentage, winStreak].forEach((cellValue) => {
     rowEl.appendChild(renderCell(cellValue));
   });
   return rowEl;
